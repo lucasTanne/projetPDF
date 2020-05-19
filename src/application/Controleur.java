@@ -9,6 +9,8 @@ import java.util.ResourceBundle;
 import gestionPDF.OuverturePDF;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -88,7 +90,7 @@ public class Controleur implements Initializable{
 		 String cheminFichier = fichier.getAbsolutePath();
 		 
 		 // Chargement du fichier PDF
-		 System.out.println(cheminFichier);
+		 //System.out.println(cheminFichier);
 		 chargementPDF(cheminFichier);
     }
 	
@@ -99,11 +101,27 @@ public class Controleur implements Initializable{
 	void chargementPDF(String cheminFichier) {
 		OuverturePDF pdf = new OuverturePDF(cheminFichier);
 		
-		int retour = pdf.chargement();
-		if(retour == -1) {
-			System.out.println("ERREUR : Le fichier n'a pas été ouvert");
-		}else {
-			System.out.println("Le fichier à été correctement ouvert");
+		try {
+			pdf.chargement();
+		} catch (IOException e) {
+			// Création d'une popup d'erreur
+			String entete = "Erreur dans l'ouverture du fichier";
+			String message = "Il y a eu une erreur dans l'ouverture du fichier PDF";
+			erreurDialog(entete, message);
 		}
+	}
+	
+	/**
+	 * Méthode d'afffichage d'une popup d'erreur
+	 * @param entete
+	 * @param message
+	 */
+	void erreurDialog(String entete, String message) {
+		Alert alert = new Alert(AlertType.ERROR);
+		alert.setTitle("Erreur");
+		alert.setHeaderText(entete);
+		alert.setContentText(message);
+
+		alert.showAndWait();
 	}
 }
