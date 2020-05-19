@@ -1,14 +1,12 @@
 package application;
 
-import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ResourceBundle;
 
+import gestionPDF.OuverturePDF;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -90,6 +88,7 @@ public class Controleur implements Initializable{
 		 String cheminFichier = fichier.getAbsolutePath();
 		 
 		 // Chargement du fichier PDF
+		 System.out.println(cheminFichier);
 		 chargementPDF(cheminFichier);
     }
 	
@@ -98,6 +97,13 @@ public class Controleur implements Initializable{
 	 * @param cheminFichier
 	 */
 	void chargementPDF(String cheminFichier) {
+		OuverturePDF pdf = new OuverturePDF(cheminFichier);
 		
+		int retour = pdf.chargement();
+		if(retour == -1) {
+			System.out.println("ERREUR : Le fichier n'a pas été ouvert");
+		}else {
+			System.out.println("Le fichier à été correctement ouvert");
+		}
 	}
 }
