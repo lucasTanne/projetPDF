@@ -35,7 +35,7 @@
             </MenuBar>
             <HBox prefHeight="31.0" prefWidth="880.0">
                <children>
-                  <Button fx:id="btnOuvrir" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="31.0" prefWidth="31.0" />
+                  <Button fx:id="btnOuvrir" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#ouvrirFichier" prefHeight="31.0" prefWidth="31.0" />
                </children></HBox>
             <AnchorPane fx:id="panel" prefHeight="878.0" prefWidth="880.0">
                <children>
