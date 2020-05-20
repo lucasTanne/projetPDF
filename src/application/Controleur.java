@@ -7,6 +7,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import gestionPDF.OuverturePDF;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
@@ -35,13 +37,16 @@ public class Controleur implements Initializable{
     private MenuItem menuOuvrir;
 
     @FXML
-    private MenuItem menuFermer;
+    private MenuItem menuQuitter;
 
     @FXML
     private Menu edition;
 
     @FXML
     private Menu aide;
+    
+    @FXML
+    private MenuItem menuAPropos;
 
     @FXML
     private Button btnOuvrir;
@@ -69,14 +74,40 @@ public class Controleur implements Initializable{
 		this.page.setLayoutY((this.panel.getPrefHeight() - this.page.getHeight()) / 2);
 	}
 	
+	@FXML
+	/**
+	 * Méthode qui ferme l'application
+	 * @param event
+	 */
+    void quitterApp(ActionEvent event) {
+		Platform.exit();
+    }
+	
 	 @FXML
 	 /**
-	  * Fonction qui permet d'ouvrir un fichier PDF
-	  * Appeler quand on clique sur l'outil "ouvrir un fichier"
+	  * Méthode appelée quand on clique sur l'outil "ouvrir un fichier"
 	  * @param event
 	  * @throws IOException
 	  */
-    void ouvrirFichier(MouseEvent event) throws IOException {
+    void btnOuvrirFichier(MouseEvent event) throws IOException {
+		 // Appel de la méthode ouvrir()
+		 ouvrir();
+    }
+	 
+	 @FXML
+	 /**
+	  * Méthode appelée quand on sélectionne le menu "Fichier/Ouvrir"
+	  * @param event
+	  */
+    void menuOuvrirFichier(ActionEvent event) {
+		// Appel de la méthode ouvrir()
+		ouvrir();
+    }
+	 
+	 /**
+	  * Méthode qui permet d'ouvrir un fichier PDF
+	  */
+	 private void ouvrir() {
 		 // Ouverture d'un explorateur windows fournit par JavaFX
 		 FileChooser fileChooser = new FileChooser();
 		 
@@ -86,13 +117,16 @@ public class Controleur implements Initializable{
 		 // Récupère le fichier choisi
 		 File fichier = fileChooser.showOpenDialog(new Stage());
 		 
-		 // Récupère le chemin absolut du fichier
-		 String cheminFichier = fichier.getAbsolutePath();
-		 
-		 // Chargement du fichier PDF
-		 //System.out.println(cheminFichier);
-		 chargementPDF(cheminFichier);
-    }
+		 // Si un fichier a été sélectionner
+		 if(fichier != null) {
+			 // Récupère le chemin absolut du fichier
+			 String cheminFichier = fichier.getAbsolutePath();
+			 
+			 // Chargement du fichier PDF
+			 //System.out.println(cheminFichier);
+			 chargementPDF(cheminFichier);
+		 }
+	 }
 	
 	/**
 	 * Méthode qui permet le chargement d'un fichier PDF
