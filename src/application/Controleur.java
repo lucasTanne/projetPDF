@@ -56,6 +56,8 @@ public class Controleur implements Initializable{
     
     @FXML
     private Rectangle page;
+    
+    private OuverturePDF pdf;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -80,6 +82,10 @@ public class Controleur implements Initializable{
 	 * @param event
 	 */
     void quitterApp(ActionEvent event) {
+		// Fermeture du fichier si il est ouvert
+		this.pdf.fermer();
+		
+		// Quitter l'application
 		Platform.exit();
     }
 	
@@ -133,10 +139,10 @@ public class Controleur implements Initializable{
 	 * @param cheminFichier
 	 */
 	void chargementPDF(String cheminFichier) {
-		OuverturePDF pdf = new OuverturePDF(cheminFichier);
+		this.pdf = new OuverturePDF(cheminFichier);
 		
 		try {
-			pdf.chargement();
+			this.pdf.chargement();
 		} catch (IOException e) {
 			// Création d'une popup d'erreur
 			String entete = "Erreur dans l'ouverture du fichier";
