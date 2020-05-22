@@ -4,7 +4,7 @@ import java.io.IOException;
 
 import com.itextpdf.text.pdf.PdfReader;
 
-public class OuverturePDF {
+public class FichierPDF {
 	private String cheminFichier;	
 	private PdfReader fichier;
 	
@@ -12,7 +12,7 @@ public class OuverturePDF {
 	 * Constructeur
 	 * @param chemin
 	 */
-	public OuverturePDF(String chemin){
+	public FichierPDF(String chemin){
 		this.cheminFichier = chemin;
 	}
 	
@@ -44,8 +44,10 @@ public class OuverturePDF {
 	
 	/**
 	 * Méthode qui va lire le contenu du fichier
+	 * @throws IOException 
 	 */
-	public void lectureFichier() {
-		
+	public void lectureFichier() throws IOException {
+	
 	}
 }
+
