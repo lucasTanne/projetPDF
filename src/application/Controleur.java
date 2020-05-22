@@ -6,7 +6,7 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import gestionPDF.OuverturePDF;
+import gestionPDF.FichierPDF;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -57,7 +57,7 @@ public class Controleur implements Initializable{
     @FXML
     private Rectangle page;
     
-    private OuverturePDF pdf;
+    private FichierPDF pdf;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -139,7 +139,7 @@ public class Controleur implements Initializable{
 	 * @param cheminFichier
 	 */
 	void chargementPDF(String cheminFichier) {
-		this.pdf = new OuverturePDF(cheminFichier);
+		this.pdf = new FichierPDF(cheminFichier);
 		
 		try {
 			this.pdf.chargement();
