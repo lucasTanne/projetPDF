@@ -17,25 +17,21 @@
               <menus>
                 <Menu fx:id="fichier" mnemonicParsing="false" text="Fichier">
                   <items>
-                        <MenuItem fx:id="menuOuvrir" mnemonicParsing="false" text="Open" />
-                    <MenuItem fx:id="menuFermer" mnemonicParsing="false" text="Close" />
+                        <MenuItem fx:id="menuOuvrir" mnemonicParsing="false" onAction="#menuOuvrirFichier" text="Ouvrir" />
+                    <MenuItem fx:id="menuQuitter" mnemonicParsing="false" onAction="#quitterApp" text="Quitter" />
                   </items>
                 </Menu>
-                <Menu fx:id="edition" mnemonicParsing="false" text="Edition">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
-                  </items>
-                </Menu>
+                <Menu fx:id="edition" mnemonicParsing="false" text="Edition" />
                 <Menu fx:id="aide" mnemonicParsing="false" text="Aide">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="About" />
+                    <MenuItem fx:id="menuAPropos" mnemonicParsing="false" text="A propos" />
                   </items>
                 </Menu>
               </menus>
             </MenuBar>
             <HBox prefHeight="31.0" prefWidth="880.0">
                <children>
-                  <Button fx:id="btnOuvrir" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#ouvrirFichier" prefHeight="31.0" prefWidth="31.0" />
+                  <Button fx:id="btnOuvrir" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#btnOuvrirFichier" prefHeight="31.0" prefWidth="31.0" />
                </children></HBox>
             <AnchorPane fx:id="panel" prefHeight="878.0" prefWidth="880.0">
                <children>

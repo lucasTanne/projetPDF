@@ -1,16 +1,18 @@
 package application;
 
-import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
 import java.util.ResourceBundle;
 
+import gestionPDF.OuverturePDF;
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
@@ -35,13 +37,16 @@ public class Controleur implements Initializable{
     private MenuItem menuOuvrir;
 
     @FXML
-    private MenuItem menuFermer;
+    private MenuItem menuQuitter;
 
     @FXML
     private Menu edition;
 
     @FXML
     private Menu aide;
+    
+    @FXML
+    private MenuItem menuAPropos;
 
     @FXML
     private Button btnOuvrir;
@@ -51,6 +56,8 @@ public class Controleur implements Initializable{
     
     @FXML
     private Rectangle page;
+    
+    private OuverturePDF pdf;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -69,14 +76,44 @@ public class Controleur implements Initializable{
 		this.page.setLayoutY((this.panel.getPrefHeight() - this.page.getHeight()) / 2);
 	}
 	
+	@FXML
+	/**
+	 * Méthode qui ferme l'application
+	 * @param event
+	 */
+    void quitterApp(ActionEvent event) {
+		// Fermeture du fichier si il est ouvert
+		this.pdf.fermer();
+		
+		// Quitter l'application
+		Platform.exit();
+    }
+	
 	 @FXML
 	 /**
-	  * Fonction qui permet d'ouvrir un fichier PDF
-	  * Appeler quand on clique sur l'outil "ouvrir un fichier"
+	  * Méthode appelée quand on clique sur l'outil "ouvrir un fichier"
 	  * @param event
 	  * @throws IOException
 	  */
-    void ouvrirFichier(MouseEvent event) throws IOException {
+    void btnOuvrirFichier(MouseEvent event) throws IOException {
+		 // Appel de la méthode ouvrir()
+		 ouvrir();
+    }
+	 
+	 @FXML
+	 /**
+	  * Méthode appelée quand on sélectionne le menu "Fichier/Ouvrir"
+	  * @param event
+	  */
+    void menuOuvrirFichier(ActionEvent event) {
+		// Appel de la méthode ouvrir()
+		ouvrir();
+    }
+	 
+	 /**
+	  * Méthode qui permet d'ouvrir un fichier PDF
+	  */
+	 private void ouvrir() {
 		 // Ouverture d'un explorateur windows fournit par JavaFX
 		 FileChooser fileChooser = new FileChooser();
 		 
@@ -86,18 +123,45 @@ public class Controleur implements Initializable{
 		 // Récupère le fichier choisi
 		 File fichier = fileChooser.showOpenDialog(new Stage());
 		 
-		 // Récupère le chemin absolut du fichier
-		 String cheminFichier = fichier.getAbsolutePath();
-		 
-		 // Chargement du fichier PDF
-		 chargementPDF(cheminFichier);
-    }
+		 // Si un fichier a été sélectionner
+		 if(fichier != null) {
+			 // Récupère le chemin absolut du fichier
+			 String cheminFichier = fichier.getAbsolutePath();
+			 
+			 // Chargement du fichier PDF
+			 //System.out.println(cheminFichier);
+			 chargementPDF(cheminFichier);
+		 }
+	 }
 	
 	/**
 	 * Méthode qui permet le chargement d'un fichier PDF
 	 * @param cheminFichier
 	 */
 	void chargementPDF(String cheminFichier) {
+		this.pdf = new OuverturePDF(cheminFichier);
 		
+		try {
+			this.pdf.chargement();
+		} catch (IOException e) {
+			// Création d'une popup d'erreur
+			String entete = "Erreur dans l'ouverture du fichier";
+			String message = "Il y a eu une erreur dans l'ouverture du fichier PDF";
+			erreurDialog(entete, message);
+		}
+	}
+	
+	/**
+	 * Méthode d'afffichage d'une popup d'erreur
+	 * @param entete
+	 * @param message
+	 */
+	void erreurDialog(String entete, String message) {
+		Alert alert = new Alert(AlertType.ERROR);
+		alert.setTitle("Erreur");
+		alert.setHeaderText(entete);
+		alert.setContentText(message);
+
+		alert.showAndWait();
 	}
 }
