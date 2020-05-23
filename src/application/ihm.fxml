@@ -36,7 +36,7 @@
             <Button fx:id="btnOuvrir" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#btnOuvrirFichier" prefHeight="31.0" prefWidth="31.0" />
          </children>
       </HBox>
-      <ScrollPane prefViewportHeight="860.0" prefViewportWidth="880.0" VBox.vgrow="ALWAYS">
+      <ScrollPane fitToWidth="true" prefViewportHeight="860.0" prefViewportWidth="880.0" VBox.vgrow="ALWAYS">
          <content>
             <VBox alignment="CENTER" layoutX="310.0" layoutY="209.0" VBox.vgrow="ALWAYS">
                <children>
