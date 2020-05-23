@@ -142,6 +142,7 @@ public class Controleur implements Initializable{
 		
 		try {
 			this.pdf.ouvrir();
+			this.pdf.lire();	/* AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA */
 		} catch (IOException e) {
 			// Création d'une popup d'erreur
 			String entete = "Erreur dans l'ouverture du fichier";
