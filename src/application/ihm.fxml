@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
@@ -9,36 +13,38 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="923.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controleur">
+<VBox alignment="CENTER" prefHeight="923.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controleur">
    <children>
-      <VBox layoutX="-2.0" layoutY="-1.0" prefHeight="923.0" prefWidth="880.0">
+      <MenuBar fx:id="menu">
+        <menus>
+          <Menu fx:id="fichier" mnemonicParsing="false" text="Fichier">
+            <items>
+                  <MenuItem fx:id="menuOuvrir" mnemonicParsing="false" onAction="#menuOuvrirFichier" text="Ouvrir" />
+              <MenuItem fx:id="menuQuitter" mnemonicParsing="false" onAction="#quitterApp" text="Quitter" />
+            </items>
+          </Menu>
+          <Menu fx:id="edition" mnemonicParsing="false" text="Edition" />
+          <Menu fx:id="aide" mnemonicParsing="false" text="Aide">
+            <items>
+              <MenuItem fx:id="menuAPropos" mnemonicParsing="false" text="A propos" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <HBox prefHeight="31.0" prefWidth="880.0">
          <children>
-            <MenuBar fx:id="menu">
-              <menus>
-                <Menu fx:id="fichier" mnemonicParsing="false" text="Fichier">
-                  <items>
-                        <MenuItem fx:id="menuOuvrir" mnemonicParsing="false" onAction="#menuOuvrirFichier" text="Ouvrir" />
-                    <MenuItem fx:id="menuQuitter" mnemonicParsing="false" onAction="#quitterApp" text="Quitter" />
-                  </items>
-                </Menu>
-                <Menu fx:id="edition" mnemonicParsing="false" text="Edition" />
-                <Menu fx:id="aide" mnemonicParsing="false" text="Aide">
-                  <items>
-                    <MenuItem fx:id="menuAPropos" mnemonicParsing="false" text="A propos" />
-                  </items>
-                </Menu>
-              </menus>
-            </MenuBar>
-            <HBox prefHeight="31.0" prefWidth="880.0">
-               <children>
-                  <Button fx:id="btnOuvrir" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#btnOuvrirFichier" prefHeight="31.0" prefWidth="31.0" />
-               </children></HBox>
-            <AnchorPane fx:id="panel" prefHeight="878.0" prefWidth="880.0">
+            <Button fx:id="btnOuvrir" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#btnOuvrirFichier" prefHeight="31.0" prefWidth="31.0" />
+         </children>
+      </HBox>
+      <ScrollPane prefViewportHeight="860.0" prefViewportWidth="880.0" VBox.vgrow="ALWAYS">
+         <content>
+            <VBox alignment="CENTER" layoutX="310.0" layoutY="209.0" VBox.vgrow="ALWAYS">
                <children>
                   <Rectangle fx:id="page" arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="200.0" layoutX="310.0" layoutY="209.0" stroke="#9a9a9a" strokeType="INSIDE" width="200.0" />
+                  <Rectangle fx:id="page2" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
                </children>
-            </AnchorPane>
-         </children>
-      </VBox>
+            </VBox>
+         </content>
+      </ScrollPane>
    </children>
-</AnchorPane>
+</VBox>
