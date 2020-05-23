@@ -20,7 +20,6 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -28,34 +27,34 @@ import javafx.stage.Stage;
 public class Controleur implements Initializable{
 
     @FXML
-    private MenuBar menu;
-
-    @FXML
     private Menu fichier;
 
     @FXML
-    private MenuItem menuOuvrir;
-
-    @FXML
-    private MenuItem menuQuitter;
-
-    @FXML
-    private Menu edition;
-
-    @FXML
     private Menu aide;
-    
+
     @FXML
     private MenuItem menuAPropos;
 
     @FXML
     private Button btnOuvrir;
-    
+
     @FXML
-    private AnchorPane panel;
-    
+    private Menu edition;
+
+    @FXML
+    private MenuItem menuQuitter;
+
     @FXML
     private Rectangle page;
+    
+    @FXML
+    private Rectangle page2;
+
+    @FXML
+    private MenuBar menu;
+
+    @FXML
+    private MenuItem menuOuvrir;
     
     private FichierPDF pdf;
 
@@ -67,13 +66,13 @@ public class Controleur implements Initializable{
 		ImageView image = new ImageView(new Image(input));
 		this.btnOuvrir.setGraphic(image);
 		
-		// Test rectangle dimention (A4)
+		// Test rectangle dimension (A4)
 		this.page.setWidth(595);
 		this.page.setHeight(842);
 		
-		// Position du rectangle dans le panel
-		this.page.setLayoutX((this.panel.getPrefWidth() / 2) - (this.page.getWidth() / 2));
-		this.page.setLayoutY((this.panel.getPrefHeight() - this.page.getHeight()) / 2);
+		// Test rectangle dimension (A4)
+		this.page2.setWidth(595);
+		this.page2.setHeight(842);
 	}
 	
 	@FXML
