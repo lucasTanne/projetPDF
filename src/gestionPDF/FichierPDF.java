@@ -73,92 +73,53 @@ public class FichierPDF {
 	 */
 	public void lire() throws IOException {
 		String retour = PdfTextExtractor.getTextFromPage(this.fichier, 1, new Strategie());
-//		System.out.println(retour);
+		System.out.println(retour);
 		
-		// Données de sauvegarde
-		Paragraphe paragrapheAvant = null;
-		Texte texteAvant = null;
-		float xAvant = -1;
-		float yAvant = -1;
 		
-		/* Test création objet Texte */
+		
+		// Déclaration d'un paragraphe
+		Paragraphe paragraphe = null;
+		
 		String[] lesTextes = retour.split(";");
-//		System.out.println(lesTextes[0]);
 		for(String info : lesTextes) {
-			// Création du paragraphe
 			String[] lesInfos = info.split(",");
-			// Création du nouveau paragraphe;
-			float x = Float.parseFloat(lesInfos[3]);
-			float y = Float.parseFloat(lesInfos[4]);
 			
-			Paragraphe paragraphe = null;
-			if(xAvant == -1 && yAvant == -1) {
-				paragraphe = new Paragraphe(Math.round(x), Math.round(y));
+			// Test si s'est un "\n"
+//			System.out.print(lesInfos[0]);
+			if(lesInfos[0].contentEquals(" ")) {
+				// Ajout du paragraphe dans la liste de bloc
+				if(paragraphe != null) this.ajouterBloc(paragraphe);
+				paragraphe = null;
 			}else {
-				if(yAvant != y) {
-					paragraphe = new Paragraphe(Math.round(x), Math.round(y));
-				}else {
-					paragraphe = paragrapheAvant;
-				}
-			}
-			// Mise à jour des coordonnées de sauvegarde
-			xAvant = x;
-			yAvant = y;
-			
-			//Création d'un nouveau Texte
-			Texte texte = new Texte(lesInfos[0]);
-			
-			// Définition de la police
-			texte.setPolice(lesInfos[1]);
-			
-			// Définition du type de police
-			String typePolice = lesInfos[2];
-			if(typePolice != null) {
-				switch(typePolice) {
-					case "Bold" :
-						texte.setGras(true);
-						break;
-					case "Italic" :
-						texte.setItalique(true);
-						break;
-				}
-			}
-			
-			// Définition de la taille de la police
-			texte.setTaille(Integer.parseInt(lesInfos[6]));
-			
-			// Test si c'est un texte de la même ligne que le précédent texte
-			// Pour faire la mise à jour ou non
-			if(texteAvant == null) {
-				texteAvant = texte;
-				paragraphe.ajouterTexte(texte);
-			}else {
-				boolean test = this.testTexte(texteAvant, texte, yAvant, y);
-				if(test && paragraphe.getTexte().size() == 0) {
+				// Si il n'y a pas de paragraphe existant
+				if(paragraphe == null) { 
+					// Création d'un nouveau paragraphe
+					paragraphe = new Paragraphe(Math.round(Float.parseFloat(lesInfos[3])), Math.round(Float.parseFloat(lesInfos[4])));
+					
+					// Création d'un nouveau texte
+					Texte texte = new Texte(lesInfos[0]);
+					
+					// définition de la police du texte
+					if(!lesInfos[1].contentEquals("null"))
+						texte.setPolice(lesInfos[1]);
+					
+					// Définition du tyoe de police du texte
+					if(!lesInfos[2].contentEquals("null")) {
+						if(lesInfos[2].contains("Bold")) texte.setGras(true);
+						if(lesInfos[2].contains("Italic")) texte.setItalique(true);
+					}
+					
+					// Définition de la taille de la police
+					texte.setTaille(Integer.parseInt(lesInfos[6]));
+					
+					// Ajout du texte au paragraphe
 					paragraphe.ajouterTexte(texte);
-				}else if(test) {
-					int taille = paragraphe.getTexte().size();
-					
-					// Mise a jour du texte dans le paragraphe
-					String valeurAvant = paragraphe.getTexte().get(taille - 1).getValeur();
-					paragraphe.getTexte().get(taille - 1).setValeur(valeurAvant += texte.getValeur());
-					
-					// Mise à jour du texteAvant par le nouveau
-					texteAvant = paragraphe.getTexte().get(taille - 1);
 				}else {
-					// Ajout du texte dans le paragraphe
-					paragraphe.ajouterTexte(texte);
-					
-					// Mise à jour du texteAvant par le nouveau
-					texteAvant = texte;
+					Texte texte = paragraphe.getTexte().get(paragraphe.getTexte().size() - 1);
+					texte.setValeur(texte.getValeur() + lesInfos[0]);
 				}
 			}
-			
-			// Ajout du paragraphe dans l'ArrayList<Bloc>
-			// Rapel : Paragraphe hérite de Bloc
-			this.ajouterBloc(paragraphe);
 		}
-		
 		this.testPara();
 	}
 	
@@ -168,28 +129,39 @@ public class FichierPDF {
 	 * @param Texte texte
 	 * @return Boolean
 	 */
-	private Boolean testTexte(Texte texteAvant, Texte texte, float yAvant, float y) {
-		if(yAvant != y) return false;
-		
-		if(texteAvant.getCouleur() != null)
-			if(!(texteAvant.getCouleur().equals(texte.getCouleur()))) return false;
-		
-		if(texteAvant.getPolice() != null)
-			if(!(texteAvant.getPolice().equals(texte.getPolice()))) return false;
-		
-		if(texteAvant.getTaille() != 0)
-			if(!(texteAvant.getTaille() == texte.getTaille())) return false;
-		
-		return true;
-	}
-	
+//	private Boolean testTexte(Texte texteAvant, Texte texte, float yAvant, float y) {
+//		if(yAvant != y) return false;
+//		
+//		if(texteAvant.getCouleur() != null)
+//			if(!(texteAvant.getCouleur().equals(texte.getCouleur()))) return false;
+//		
+//		if(texteAvant.getPolice() != null)
+//			if(!(texteAvant.getPolice().equals(texte.getPolice()))) return false;
+//		
+//		if(texteAvant.getTaille() != 0)
+//			if(!(texteAvant.getTaille() == texte.getTaille())) return false;
+//		
+//		return true;
+//	}
+//	
 	private void testPara() {
-		Bloc b = this.blocs.get(0);
-		if(b instanceof Paragraphe) {
-			Paragraphe p = (Paragraphe)b;
-			
-			System.out.println(p.getTexte().get(0).getValeur());
+		System.out.println("nb : " + this.blocs.size());
+		for(Bloc b : this.blocs) {
+			if(b instanceof Paragraphe) {
+				System.out.println("Ceci est un Paragraphe :");
+				Paragraphe p = (Paragraphe)b;
+				for(Texte t : p.getTexte()) {
+					System.out.println("Valeur : " + t.getValeur());
+				}
+				System.out.println("\n");
+			}
 		}
+//		Bloc b = this.blocs.get(0);
+//		if(b instanceof Paragraphe) {
+//			Paragraphe p = (Paragraphe)b;
+//			
+//			System.out.println(p.getTexte().get(0).getValeur());
+//		}
 	}
 }
 
