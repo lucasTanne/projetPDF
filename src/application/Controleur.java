@@ -146,7 +146,7 @@ public class Controleur implements Initializable{
 		
 		try
 		{
-			this.pdf.chargement();
+			this.pdf.ouvrir();
 			
 			AnchorPane pagePane = new AnchorPane();
 			
