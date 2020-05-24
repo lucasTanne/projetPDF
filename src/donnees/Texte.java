@@ -5,6 +5,7 @@ import javafx.scene.paint.Color;
 public class Texte {
 	private String valeur;
 	private String police;
+	private int taille;
 	private Boolean gras;
 	private Boolean italique;
 	private Boolean souligne;
@@ -20,12 +21,13 @@ public class Texte {
 	public Texte(String valeur) {
 		this.valeur = valeur;
 		
-		this.police = null;
+		this.police = "";
+		this.taille = 0;
 		this.gras = false;
 		this.italique = false;
 		this.souligne = false;
 		this.barre = false;
-		this.hyperlien = null;
+		this.hyperlien = "";
 		this.couleur = null;
 	}
 	
@@ -59,6 +61,22 @@ public class Texte {
 	 */
 	public void setPolice(String police) {
 		this.police = police;
+	}
+	
+	/**
+	 * Méthode qui retourne la taille de la police
+	 * @return
+	 */
+	public int getTaille() {
+		return this.taille;
+	}
+	
+	/**
+	 * Méthode qui définis la taille de la police
+	 * @param taille
+	 */
+	public void setTaille(int taille) {
+		this.taille = taille;
 	}
 	
 	/**
