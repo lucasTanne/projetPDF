@@ -22,7 +22,7 @@ public class Strategie implements TextExtractionStrategy{
     public void endTextBlock()
     {
     	
-    	this.res += "," + this.police + "," + this.typePolice + "," + this.coordonnees + "," + this.taillePolice + ";";
+    	this.res += ",," + this.police + ",," + this.typePolice + ",," + this.coordonnees + ",," + this.taillePolice + ";;";
     }
 
     @Override
@@ -41,7 +41,7 @@ public class Strategie implements TextExtractionStrategy{
 	    this.typePolice = (fontName.indexOf("-") == -1 ? "null" : fontName.substring(fontName.indexOf("-") + 1));
 
 	    if(this.debut == true) {
-	    	this.coordonnees = arg0.getAscentLine().getStartPoint().toString();
+	    	this.coordonnees = arg0.getAscentLine().getStartPoint().toString().replace(",", ",,");
 	    	this.debut = false;
 	    }
 	    // taille de la police en float convertie en int

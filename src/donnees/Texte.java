@@ -21,13 +21,13 @@ public class Texte {
 	public Texte(String valeur) {
 		this.valeur = valeur;
 		
-		this.police = null;
+		this.police = "";
 		this.taille = 0;
 		this.gras = false;
 		this.italique = false;
 		this.souligne = false;
 		this.barre = false;
-		this.hyperlien = null;
+		this.hyperlien = "";
 		this.couleur = null;
 	}
 	
