@@ -2,7 +2,7 @@ package donnees;
 
 import java.awt.image.BufferedImage;
 
-public class Images {
+public class Images extends Bloc{
 	private BufferedImage image;
 	private String hyperlien;
 	
@@ -10,8 +10,10 @@ public class Images {
 	 * Constructeur d'un objet image
 	 * @param BufferedImage image
 	 */
-	public Images(BufferedImage image) {
-		this.image = image;
+	public Images(int x, int y) {
+		super(x, y);
+		
+		this.image = null;
 		this.hyperlien = null;
 	}
 	

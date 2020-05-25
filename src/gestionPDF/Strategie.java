@@ -1,8 +1,14 @@
 package gestionPDF;
 
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.ArrayList;
+
 import com.itextpdf.text.pdf.parser.ImageRenderInfo;
 import com.itextpdf.text.pdf.parser.TextExtractionStrategy;
 import com.itextpdf.text.pdf.parser.TextRenderInfo;
+
+import donnees.Images;
 
 public class Strategie implements TextExtractionStrategy{
 	private String res = "";
@@ -11,6 +17,9 @@ public class Strategie implements TextExtractionStrategy{
     private Boolean debut = false;
     private String coordonnees = "";
     private int taillePolice = 0;
+    
+    // Buffer d'image si il y en a une dans l'extraction de la page
+    private ArrayList<Images> images = null;
 
     @Override
     public void beginTextBlock()
@@ -28,7 +37,26 @@ public class Strategie implements TextExtractionStrategy{
     @Override
     public void renderImage(ImageRenderInfo arg0)
     {
-        
+    	if(this.images == null) this.images = new ArrayList<Images>();
+    	
+    	try {
+    		String[] infos = arg0.getStartPoint().toString().split(",");
+    		String x = infos[0];
+    		String y = infos[1];
+			Images image = new Images(Math.round(Float.parseFloat(x)), Math.round(Float.parseFloat(y)));
+			
+			BufferedImage bufImg = arg0.getImage().getBufferedImage();
+		    BufferedImage convertedImg = new BufferedImage(bufImg.getWidth(), bufImg.getHeight(), BufferedImage.TRANSLUCENT);
+		    convertedImg.getGraphics().drawImage(bufImg, 0, 0, null);
+			
+			image.setImage(convertedImg);
+			
+			this.images.add(image);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	
     }
 
     @Override
@@ -52,5 +80,13 @@ public class Strategie implements TextExtractionStrategy{
     public String getResultantText()
     {
         return this.res;
+    }
+    
+    /**
+     * Méthode qui retourne les images
+     * @return
+     */
+    public ArrayList<Images> getLesImages(){
+    	return this.images;
     }
 }

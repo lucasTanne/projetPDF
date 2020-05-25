@@ -1,12 +1,16 @@
 package gestionPDF;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
 
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.parser.PdfTextExtractor;
 
 import donnees.Bloc;
+import donnees.Images;
 import donnees.Page;
 import donnees.Paragraphe;
 import donnees.Texte;
@@ -98,7 +102,11 @@ public class FichierPDF {
 	 * @throws IOException 
 	 */
 	public void lire(int indexPage) throws IOException {
-		String retour = PdfTextExtractor.getTextFromPage(this.fichier, indexPage, new Strategie());
+		// Création d'une instance de Strategie pour l'extraction
+		Strategie strat = new Strategie();
+		
+		// Extraction des données de la page
+		String retour = PdfTextExtractor.getTextFromPage(this.fichier, indexPage, strat);
 		System.out.println(retour);
 		
 		// Création d'une nouvelle page
@@ -177,8 +185,17 @@ public class FichierPDF {
 				}
 			}
 		}
+		// Récupération des images de la page
+		ArrayList<Images> lesImages = strat.getLesImages();
+		if(lesImages != null) {
+			for(Images image : lesImages) {
+				page.ajouterBloc(image);
+			}
+		}
 		this.ajouterPage(page);
-		this.testPara();
+		
+		//this.testPara();
+		this.testImage();
 	}
 	
 	/**
@@ -212,6 +229,26 @@ public class FichierPDF {
 						System.out.println("Valeur : " + t.getValeur());
 					}
 					System.out.println("\n");
+				}
+			}
+		}
+	}
+	
+	private void testImage() {
+		int a = 0;
+		for(Page p : this.pages) {
+			for(Bloc b : p.getLesBlocs()) {
+				if(b instanceof Images) {
+					Images i = (Images)b;
+					
+					File outputfile = new File("C:\\Users\\lulu\\Documents\\UBO_2019-2020\\projet\\testImage\\" + a + ".png");
+					try {
+						ImageIO.write(i.getImage(), "png", outputfile);
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					a++;
 				}
 			}
 		}
