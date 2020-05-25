@@ -7,13 +7,14 @@ import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.parser.PdfTextExtractor;
 
 import donnees.Bloc;
+import donnees.Page;
 import donnees.Paragraphe;
 import donnees.Texte;
 
 public class FichierPDF {
 	private String chemin;	
 	private PdfReader fichier;
-	private ArrayList<Bloc> blocs;
+	private ArrayList<Page> pages;
 	
 	/**
 	 * Constructeur d'un fichier PDF
@@ -23,7 +24,7 @@ public class FichierPDF {
 		this.chemin = chemin;
 		
 		this.fichier = null;
-		this.blocs = new ArrayList<Bloc>();
+		this.pages = new ArrayList<Page>();
 	}
 	
 	/**
@@ -60,19 +61,19 @@ public class FichierPDF {
 	}
 	
 	/**
-	 * Méthode qui ajoute un bloc dans l'ArrayList<Bloc>
-	 * @param Bloc bloc
+	 * Méthode qui ajoute une page dans l'ArrayList<Page>
+	 * @param Page page
 	 */
-	public void ajouterBloc(Bloc bloc) {
-		this.blocs.add(bloc);
+	public void ajouterPage(Page page) {
+		this.pages.add(page);
 	}
 	
 	/**
 	 * Méthode qui supprime un bloc de l'ArrayList<Bloc>
 	 * @param int index
 	 */
-	public void supprimerBloc(int index) {
-		this.blocs.remove(index);
+	public void supprimerPage(int index) {
+		this.pages.remove(index);
 	}
 	
 	/**
@@ -81,9 +82,10 @@ public class FichierPDF {
 	 */
 	public void lire(int indexPage) throws IOException {
 		String retour = PdfTextExtractor.getTextFromPage(this.fichier, indexPage, new Strategie());
-//		System.out.println(retour);
+		System.out.println(retour);
 		
-		
+		// Création d'une nouvelle page
+		Page page = new Page();
 		
 		// Déclaration d'un paragraphe
 		Paragraphe paragraphe = null;
@@ -99,7 +101,7 @@ public class FichierPDF {
 	//			System.out.print(lesInfos[0]);
 				if(lesInfos[0].contentEquals(" ")) {
 					// Ajout du paragraphe dans la liste de bloc
-					if(paragraphe != null) this.ajouterBloc(paragraphe);
+					if(paragraphe != null) page.ajouterBloc(paragraphe);
 					paragraphe = null;
 				}else {
 					// Si il n'y a pas de paragraphe existant
@@ -158,6 +160,7 @@ public class FichierPDF {
 				}
 			}
 		}
+		this.ajouterPage(page);
 		this.testPara();
 	}
 	
@@ -182,15 +185,17 @@ public class FichierPDF {
 	}
 	
 	private void testPara() {
-		System.out.println("nb : " + this.blocs.size());
-		for(Bloc b : this.blocs) {
-			if(b instanceof Paragraphe) {
-				System.out.println("Ceci est un Paragraphe :");
-				Paragraphe p = (Paragraphe)b;
-				for(Texte t : p.getTexte()) {
-					System.out.println("Valeur : " + t.getValeur());
+		System.out.println("nb : " + this.pages.size());
+		for(Page pa : this.pages) {
+			for(Bloc b : pa.getLesBlocs()) {
+				if(b instanceof Paragraphe) {
+					System.out.println("Ceci est un Paragraphe :");
+					Paragraphe p = (Paragraphe)b;
+					for(Texte t : p.getTexte()) {
+						System.out.println("Valeur : " + t.getValeur());
+					}
+					System.out.println("\n");
 				}
-				System.out.println("\n");
 			}
 		}
 	}
