@@ -16,7 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Rectangle?>
 
-<VBox fx:id="mainPane" alignment="CENTER" prefHeight="923.0" prefWidth="880.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controleur">
+<VBox fx:id="mainPane" alignment="CENTER" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controleur">
    <children>
       <MenuBar fx:id="menu">
         <menus>
@@ -39,13 +39,9 @@
             <Button fx:id="btnOuvrir" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#btnOuvrirFichier" prefHeight="31.0" prefWidth="31.0" />
          </children>
       </HBox>
-      <ScrollPane fitToWidth="true" prefViewportHeight="860.0" prefViewportWidth="880.0" VBox.vgrow="ALWAYS">
+      <ScrollPane fitToHeight="true" fitToWidth="true" prefViewportHeight="860.0" prefViewportWidth="880.0" VBox.vgrow="ALWAYS">
          <content>
-            <VBox fx:id="pdfContainer" alignment="CENTER" layoutX="310.0" layoutY="209.0" VBox.vgrow="ALWAYS">
-               <children>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" />
-               </children>
-            </VBox>
+            <VBox fx:id="pdfContainer" alignment="TOP_CENTER" layoutX="310.0" layoutY="209.0" VBox.vgrow="ALWAYS" />
          </content>
       </ScrollPane>
    </children>
