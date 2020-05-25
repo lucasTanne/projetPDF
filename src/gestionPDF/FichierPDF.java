@@ -52,6 +52,14 @@ public class FichierPDF {
 	}
 	
 	/**
+	 * Methode qui retourne le nombre de pages du document
+	 * @return int nbPages
+	 */
+	public int nbPages() {
+		return this.fichier.getNumberOfPages();
+	}
+	
+	/**
 	 * Méthode qui ajoute un bloc dans l'ArrayList<Bloc>
 	 * @param Bloc bloc
 	 */
@@ -71,9 +79,9 @@ public class FichierPDF {
 	 * Méthode qui va lire le contenu du fichier
 	 * @throws IOException 
 	 */
-	public void lire() throws IOException {
-		String retour = PdfTextExtractor.getTextFromPage(this.fichier, 3, new Strategie());
-		System.out.println(retour);
+	public void lire(int indexPage) throws IOException {
+		String retour = PdfTextExtractor.getTextFromPage(this.fichier, indexPage, new Strategie());
+//		System.out.println(retour);
 		
 		
 		
