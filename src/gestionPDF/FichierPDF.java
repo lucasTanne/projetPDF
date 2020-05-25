@@ -77,6 +77,23 @@ public class FichierPDF {
 	}
 	
 	/**
+	 * Méthode qui retourne une liste de pages
+	 * @return ArrayList<Page>
+	 */
+	public ArrayList<Page> getPages(){
+		return this.pages;
+	}
+	
+	/**
+	 * Méthode qui retourne une page de la liste de pages
+	 * @param int index
+	 * @return Page page
+	 */
+	public Page getPage(int index) {
+		return this.pages.get(index);
+	}
+	
+	/**
 	 * Méthode qui va lire le contenu du fichier
 	 * @throws IOException 
 	 */
