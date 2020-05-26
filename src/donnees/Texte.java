@@ -16,7 +16,7 @@ public class Texte {
 	/**
 	 * Constructeur d'un texte
 	 * @param valeur
-	 * Met les propriétées à leurs valeurs par défaut
+	 * Met les proprietees e leurs valeurs par defaut
 	 */
 	public Texte(String valeur) {
 		this.valeur = valeur;
@@ -32,7 +32,7 @@ public class Texte {
 	}
 	
 	/**
-	 * Méthode get de la valeur du texte
+	 * Methode get de la valeur du texte
 	 * @return valeur
 	 */
 	public String getValeur() {
@@ -40,7 +40,7 @@ public class Texte {
 	}
 	
 	/**
-	 * Méthode set de la valeur du texte
+	 * Methode set de la valeur du texte
 	 * @param texte
 	 */
 	public void setValeur(String texte) {
@@ -48,7 +48,7 @@ public class Texte {
 	}
 	
 	/**
-	 * Méthode get de la police du texte
+	 * Methode get de la police du texte
 	 * @return police
 	 */
 	public String getPolice() {
@@ -56,7 +56,7 @@ public class Texte {
 	}
 	
 	/**
-	 * Méthode set de la police du texte
+	 * Methode set de la police du texte
 	 * @param police
 	 */
 	public void setPolice(String police) {
@@ -64,7 +64,7 @@ public class Texte {
 	}
 	
 	/**
-	 * Méthode qui retourne la taille de la police
+	 * Methode qui retourne la taille de la police
 	 * @return
 	 */
 	public int getTaille() {
@@ -72,7 +72,7 @@ public class Texte {
 	}
 	
 	/**
-	 * Méthode qui définis la taille de la police
+	 * Methode qui definis la taille de la police
 	 * @param taille
 	 */
 	public void setTaille(int taille) {
@@ -80,7 +80,7 @@ public class Texte {
 	}
 	
 	/**
-	 * Méthode qui indique si le texte est en gras
+	 * Methode qui indique si le texte est en gras
 	 * @return true/false
 	 */
 	public Boolean isGras() {
@@ -88,7 +88,7 @@ public class Texte {
 	}
 	
 	/**
-	 * Méthode qui définis si le texte est en gras
+	 * Methode qui definis si le texte est en gras
 	 * @param true/false
 	 */
 	public void setGras(Boolean valeur) {
@@ -96,7 +96,7 @@ public class Texte {
 	}
 	
 	/**
-	 * Méthode qui indique si le texte est en italique
+	 * Methode qui indique si le texte est en italique
 	 * @return true/false
 	 */
 	public Boolean isItalique() {
@@ -104,7 +104,7 @@ public class Texte {
 	}
 	
 	/**
-	 * Méthode qui définis si le texte est en italique
+	 * Methode qui definis si le texte est en italique
 	 * @param true/false
 	 */
 	public void setItalique(Boolean valeur) {
@@ -112,7 +112,7 @@ public class Texte {
 	}
 	
 	/**
-	 * Méthode qui indique si le texte est souligné
+	 * Methode qui indique si le texte est souligne
 	 * @return true/false
 	 */
 	public Boolean isSouligne() {
@@ -120,7 +120,7 @@ public class Texte {
 	}
 	
 	/**
-	 * Méthode qui définis si le texte est souligné
+	 * Methode qui definis si le texte est souligne
 	 * @param valeur
 	 */
 	public void setSouligne(Boolean valeur) {
@@ -128,7 +128,7 @@ public class Texte {
 	}
 	
 	/**
-	 * Méthode qui indique si le texte est barré
+	 * Methode qui indique si le texte est barre
 	 * @return true/false
 	 */
 	public Boolean isBarre() {
@@ -136,7 +136,7 @@ public class Texte {
 	}
 	
 	/**
-	 * Méthode qui définis si le texte est barré
+	 * Methode qui definis si le texte est barre
 	 * @param true/false
 	 */
 	public void setBarre(Boolean valeur) {
@@ -144,7 +144,7 @@ public class Texte {
 	}
 	
 	/**
-	 * Méthode qui retorune le lien hypertexte
+	 * Methode qui retorune le lien hypertexte
 	 * @return lien hypertexte
 	 */
 	public String getHyperlien() {
@@ -152,7 +152,7 @@ public class Texte {
 	}
 	
 	/**
-	 * Méthode qui définis le lien de l'hyperlien
+	 * Methode qui definis le lien de l'hyperlien
 	 * @param lien hypertexte
 	 */
 	public void setHyperlien(String lien) {
@@ -160,7 +160,7 @@ public class Texte {
 	}
 	
 	/**
-	 * Méthode qui donne la couelur du texte
+	 * Methode qui donne la couelur du texte
 	 * @return un objet couleur
 	 */
 	public Color getCouleur() {
@@ -168,7 +168,7 @@ public class Texte {
 	}
 	
 	/**
-	 * Méthode qui définis la couleur du texte
+	 * Methode qui definis la couleur du texte
 	 * @param un objet couleur
 	 */
 	public void setCouleur(Color couleur) {

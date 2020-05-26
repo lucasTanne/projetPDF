@@ -32,8 +32,8 @@ public class FichierPDF {
 	}
 	
 	/**
-	 * M�thode de chargement du fichier PDF.
-	 * Propage l'erreur pour la g�rer dans le package de l'IHM.
+	 * Methode de chargement du fichier PDF.
+	 * Propage l'erreur pour la gerer dans le package de l'IHM.
 	 * @throws IOException
 	 */
 	public void ouvrir() throws IOException {
@@ -41,14 +41,14 @@ public class FichierPDF {
 	}
 	
 	/**
-	 * M�thode qui referme un fichier PDF
+	 * Methode qui referme un fichier PDF
 	 */
 	public void fermer() {
 		this.fichier.close();
 	}
 	
 	/**
-	 * M�thode qui test si un fichier est ouvert
+	 * Methode qui test si un fichier est ouvert
 	 * @return Boolean
 	 */
 	public Boolean estOuvert() {
@@ -65,7 +65,7 @@ public class FichierPDF {
 	}
 	
 	/**
-	 * M�thode qui ajoute une page dans l'ArrayList<Page>
+	 * Methode qui ajoute une page dans l'ArrayList<Page>
 	 * @param Page page
 	 */
 	public void ajouterPage(Page page) {
@@ -73,7 +73,7 @@ public class FichierPDF {
 	}
 	
 	/**
-	 * M�thode qui supprime un bloc de l'ArrayList<Bloc>
+	 * Methode qui supprime un bloc de l'ArrayList<Bloc>
 	 * @param int index
 	 */
 	public void supprimerPage(int index) {
@@ -81,7 +81,7 @@ public class FichierPDF {
 	}
 	
 	/**
-	 * M�thode qui retourne une liste de pages
+	 * Methode qui retourne une liste de pages
 	 * @return ArrayList<Page>
 	 */
 	public ArrayList<Page> getPages(){
@@ -89,7 +89,7 @@ public class FichierPDF {
 	}
 	
 	/**
-	 * M�thode qui retourne une page de la liste de pages
+	 * Methode qui retourne une page de la liste de pages
 	 * @param int index
 	 * @return Page page
 	 */
@@ -98,21 +98,21 @@ public class FichierPDF {
 	}
 	
 	/**
-	 * M�thode qui va lire le contenu du fichier
+	 * Methode qui va lire le contenu du fichier
 	 * @throws IOException 
 	 */
 	public void lire(int indexPage) throws IOException {
-		// Cr�ation d'une instance de Strategie pour l'extraction
+		// Creation d'une instance de Strategie pour l'extraction
 		Strategie strat = new Strategie();
 		
-		// Extraction des donn�es de la page
+		// Extraction des donnees de la page
 		String retour = PdfTextExtractor.getTextFromPage(this.fichier, indexPage, strat);
 		System.out.println(retour);
 		
-		// Cr�ation d'une nouvelle page
+		// Creation d'une nouvelle page
 		Page page = new Page();
 		
-		// D�claration d'un paragraphe
+		// Declaration d'un paragraphe
 		Paragraphe paragraphe = null;
 		
 		String[] lesTextes = retour.split(";;");
@@ -131,51 +131,51 @@ public class FichierPDF {
 				}else {
 					// Si il n'y a pas de paragraphe existant
 					if(paragraphe == null) { 
-						// Cr�ation d'un nouveau paragraphe
+						// Creation d'un nouveau paragraphe
 						paragraphe = new Paragraphe(Math.round(Float.parseFloat(lesInfos[3])), Math.round(Float.parseFloat(lesInfos[4])));
 					
-						// Cr�ation d'un nouveau texte
+						// Creation d'un nouveau texte
 						Texte texte = new Texte(lesInfos[0]);
 						
-						// d�finition de la police du texte
+						// definition de la police du texte
 						if(!lesInfos[1].contentEquals("null"))
 							texte.setPolice(lesInfos[1]);
 						
-						// D�finition du type de police du texte
+						// Definition du type de police du texte
 						if(!lesInfos[2].contentEquals("null")) {
 							if(lesInfos[2].contains("Bold")) texte.setGras(true);
 							if(lesInfos[2].contains("Italic")) texte.setItalique(true);
 						}
 						
-						// D�finition de la taille de la police
+						// Definition de la taille de la police
 						texte.setTaille(Integer.parseInt(lesInfos[6]));
 						
 						// Ajout du texte au paragraphe
 						paragraphe.ajouterTexte(texte);
 					}else {
-						// R�cup�ration du dernier texte de la liste de Texte du paragraphe
+						// Recuperation du dernier texte de la liste de Texte du paragraphe
 						Texte texteDernier = paragraphe.getTexte().get(paragraphe.getTexte().size() - 1);
 						
 						// Test si les informations concernent le texte sont identiques
 						if(this.testTexte(lesInfos, texteDernier)) {
-							// R�cup�re la valeur du texte
+							// Recupere la valeur du texte
 							String valeur = texteDernier.getValeur();
 							paragraphe.getTexte().get(paragraphe.getTexte().size() - 1).setValeur(valeur + lesInfos[0]);
 						}else {
-							// Cr�ation d'un nouveau texte
+							// Creation d'un nouveau texte
 							Texte texte = new Texte(lesInfos[0]);
 							
-							// d�finition de la police du texte
+							// definition de la police du texte
 							if(!lesInfos[1].contentEquals("null"))
 								texte.setPolice(lesInfos[1]);
 							
-							// D�finition du type de police du texte
+							// Definition du type de police du texte
 							if(!lesInfos[2].contentEquals("null")) {
 								if(lesInfos[2].contains("Bold")) texte.setGras(true);
 								if(lesInfos[2].contains("Italic")) texte.setItalique(true);
 							}
 							
-							// D�finition de la taille de la police
+							// Definition de la taille de la police
 							texte.setTaille(Integer.parseInt(lesInfos[6]));
 							
 							// Ajout du texte au paragraphe
@@ -185,7 +185,7 @@ public class FichierPDF {
 				}
 			}
 		}
-		// R�cup�ration des images de la page
+		// Recuperation des images de la page
 		ArrayList<Images> lesImages = strat.getLesImages();
 		if(lesImages != null) {
 			for(Images image : lesImages) {
@@ -199,7 +199,7 @@ public class FichierPDF {
 	}
 	
 	/**
-	 * M�thode qui test si le texte cr�er est identique au pr�c�dent
+	 * Methode qui test si le texte creer est identique au precedent
 	 * @param Texte texteAvant
 	 * @param Texte texte
 	 * @return Boolean

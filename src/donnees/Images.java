@@ -18,7 +18,7 @@ public class Images extends Bloc{
 	}
 	
 	/**
-	 * Méthode qui retourne un BufferedImage
+	 * Methode qui retourne un BufferedImage
 	 * @return BufferedImage
 	 */
 	public BufferedImage getImage() {
@@ -26,7 +26,7 @@ public class Images extends Bloc{
 	}
 	
 	/**
-	 * Méthode qui définis une image
+	 * Methode qui definis une image
 	 * @param BufferedImage image
 	 */
 	public void setImage(BufferedImage image) {
@@ -34,7 +34,7 @@ public class Images extends Bloc{
 	}
 	
 	/**
-	 * Méthode qui retourne l'hyperlien de l'image
+	 * Methode qui retourne l'hyperlien de l'image
 	 * @return String
 	 */
 	public String getHyperlien() {
@@ -42,7 +42,7 @@ public class Images extends Bloc{
 	}
 	
 	/**
-	 * Méthode qui définis l'hyperlien de l'image
+	 * Methode qui definis l'hyperlien de l'image
 	 * @param String lien
 	 */
 	public void setHyperlien(String lien) {

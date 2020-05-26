@@ -83,7 +83,7 @@ public class Strategie implements TextExtractionStrategy{
     }
     
     /**
-     * Méthode qui retourne les images
+     * Methode qui retourne les images
      * @return
      */
     public ArrayList<Images> getLesImages(){

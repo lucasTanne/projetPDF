@@ -11,7 +11,7 @@ public class Paragraphe extends Bloc{
 	}
 	
 	/**
-	 * Méthode qui retourne une ArrayList de Texte
+	 * Methode qui retourne une ArrayList de Texte
 	 * @return ArrayList<Texte>
 	 */
 	public ArrayList<Texte> getTexte(){
@@ -19,7 +19,7 @@ public class Paragraphe extends Bloc{
 	}
 	
 	/**
-	 * Méthode qui ajoute un objet texte dans l'ArrayList<Texte>
+	 * Methode qui ajoute un objet texte dans l'ArrayList<Texte>
 	 * @param objet Texte
 	 */
 	public void ajouterTexte(Texte texte) {
@@ -27,7 +27,7 @@ public class Paragraphe extends Bloc{
 	}
 	
 	/**
-	 * Méthode qui supprimer un objet Texte dans l'ArrayList<Texte>
+	 * Methode qui supprimer un objet Texte dans l'ArrayList<Texte>
 	 * @param int index
 	 */
 	public void supprimerTexte(int index) {

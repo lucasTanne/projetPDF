@@ -15,7 +15,7 @@ public abstract class Bloc {
 	}
 	
 	/**
-	 * Méthode get de la propriétée X
+	 * Methode get de la proprietee X
 	 * @return X
 	 */
 	public int getX() {
@@ -23,7 +23,7 @@ public abstract class Bloc {
 	}
 	
 	/**
-	 * Méthode get de la propriétée Y
+	 * Methode get de la proprietee Y
 	 * @return Y
 	 */
 	public int getY() {
