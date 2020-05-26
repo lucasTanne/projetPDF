@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.geometry.*?>
@@ -36,8 +37,114 @@
       </MenuBar>
       <HBox prefHeight="31.0" prefWidth="880.0">
          <children>
-            <Button fx:id="btnOuvrir" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#btnOuvrirFichier" prefHeight="31.0" prefWidth="31.0" />
+            <Button fx:id="btnOuvrir" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#btnOuvrirFichier">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/31.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
+            <Button mnemonicParsing="false">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/icons8-save-64.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/icons8-print-64.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/icons8-text-40.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/icons8-bold-41.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/icons8-italic-40.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/icons8-underline-40.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/icons8-color-wheel-40.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button mnemonicParsing="false">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/icons8-image-144.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
          </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
       </HBox>
       <ScrollPane fitToHeight="true" fitToWidth="true" prefViewportHeight="860.0" prefViewportWidth="880.0" VBox.vgrow="ALWAYS">
          <content>
