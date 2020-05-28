@@ -45,7 +45,7 @@
                      </image>
                   </ImageView>
                </graphic></Button>
-            <Button mnemonicParsing="false">
+            <Button fx:id="btnSauvegarde" mnemonicParsing="false" onAction="#sauvegarder">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
@@ -148,7 +148,7 @@
       </HBox>
       <ScrollPane fitToHeight="true" fitToWidth="true" prefViewportHeight="860.0" prefViewportWidth="880.0" VBox.vgrow="ALWAYS">
          <content>
-            <VBox fx:id="pdfContainer" alignment="TOP_CENTER" layoutX="310.0" layoutY="209.0" VBox.vgrow="ALWAYS" />
+            <VBox fx:id="pdfContainer" alignment="TOP_CENTER" focusTraversable="true" layoutX="310.0" layoutY="209.0" VBox.vgrow="ALWAYS" />
          </content>
       </ScrollPane>
    </children>
