@@ -65,13 +65,17 @@ public class Strategie implements TextExtractionStrategy{
 		res += arg0.getText();
 		
 	    String fontName = arg0.getFont().getPostscriptFontName();
+	    
 	    this.police = (fontName.indexOf("+") == -1 ? "null" : fontName.substring(fontName.indexOf("+") + 1));
+	    if(this.police.indexOf("-") != -1) this.police = this.police.split("-")[0];
+	   
 	    this.typePolice = (fontName.indexOf("-") == -1 ? "null" : fontName.substring(fontName.indexOf("-") + 1));
 
 	    if(this.debut == true) {
 	    	this.coordonnees = arg0.getAscentLine().getStartPoint().toString().replace(",", ",,");
 	    	this.debut = false;
 	    }
+	    
 	    // taille de la police en float convertie en int
 	    this.taillePolice = Math.round((arg0.getAscentLine().getStartPoint().get(1) - arg0.getDescentLine().getStartPoint().get(1)));
     }

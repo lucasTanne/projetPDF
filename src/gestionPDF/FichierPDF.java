@@ -107,7 +107,7 @@ public class FichierPDF {
 		
 		// Extraction des donnees de la page
 		String retour = PdfTextExtractor.getTextFromPage(this.fichier, indexPage, strat);
-		System.out.println(retour);
+//		System.out.println(retour);
 		
 		// Creation d'une nouvelle page
 		Page page = new Page();
@@ -117,7 +117,7 @@ public class FichierPDF {
 		
 		String[] lesTextes = retour.split(";;");
 		for(String info : lesTextes) {
-			System.out.println(info + "\n\n");
+			System.out.println("\n" + info);
 			String[] lesInfos = info.split(",,");
 //			System.out.println(lesInfos.length);
 			if(lesInfos.length == 7) {
@@ -206,14 +206,15 @@ public class FichierPDF {
 	 */
 	private Boolean testTexte(String[] lesInfos, Texte texte) {		
 		// Test sur la police
-		if(!(lesInfos[1].contentEquals(texte.getPolice())))	return false;
+		if(!(lesInfos[1].contentEquals(texte.getPolice()))) return false;
 		
 		// Test sur la taille de la police
 		if(Integer.parseInt(lesInfos[6]) != texte.getTaille()) return false;
 		
 		// Test sur les types de police
-		if(lesInfos[2].contains("Bold") && texte.isGras()) return false;
-		if(lesInfos[2].contains("Italic") && texte.isItalique()) return false;
+		if(!(lesInfos[2].contains("Bold") && texte.isGras())) return false;
+		
+		if(!(lesInfos[2].contains("Italic") && texte.isItalique())) return false;
 		
 		return true;
 	}
