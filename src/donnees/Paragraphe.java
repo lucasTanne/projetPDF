@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Paragraphe extends Bloc{
 	private ArrayList<Texte> texte;
 	
-	public Paragraphe(int x, int y) {
+	public Paragraphe(double x, double y) {
 		super(x, y);
 		this.texte = new ArrayList<Texte>();
 	}

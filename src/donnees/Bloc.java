@@ -1,15 +1,15 @@
 package donnees;
 
 public abstract class Bloc {
-	private int x;
-	private int y;
+	private double x;
+	private double y;
 	
 	/**
 	 * Constructeur d'un bloc
 	 * @param x
 	 * @param y
 	 */
-	public Bloc(int x, int y){
+	public Bloc(double x, double y){
 		this.x = x;
 		this.y = y;
 	}
@@ -18,7 +18,7 @@ public abstract class Bloc {
 	 * Methode get de la proprietee X
 	 * @return X
 	 */
-	public int getX() {
+	public double getX() {
 		return this.x;
 	}
 	
@@ -26,7 +26,7 @@ public abstract class Bloc {
 	 * Methode get de la proprietee Y
 	 * @return Y
 	 */
-	public int getY() {
+	public double getY() {
 		return this.y;
 	}
 }

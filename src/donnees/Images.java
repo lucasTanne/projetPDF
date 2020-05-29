@@ -10,7 +10,7 @@ public class Images extends Bloc{
 	 * Constructeur d'un objet image
 	 * @param BufferedImage image
 	 */
-	public Images(int x, int y) {
+	public Images(double x, double y) {
 		super(x, y);
 		
 		this.image = null;
