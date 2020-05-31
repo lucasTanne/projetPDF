@@ -15,18 +15,36 @@ public abstract class Bloc {
 	}
 	
 	/**
-	 * Methode get de la proprietee X
-	 * @return X
+	 * Methode get de la proprietee x
+	 * @return x
 	 */
 	public double getX() {
 		return this.x;
 	}
 	
 	/**
-	 * Methode get de la proprietee Y
-	 * @return Y
+	 * Methode get de la proprietee y
+	 * @return y
 	 */
 	public double getY() {
 		return this.y;
 	}
+
+	/**
+	 * Methode set de la proprietee x
+	 * @param x
+	 */
+	public void setX(double x) {
+		this.x = x;
+	}
+
+	/**
+	 * Methode set de la proprietee Y
+	 * @param y
+	 */
+	public void setY(double y) {
+		this.y = y;
+	}
+	
+	
 }

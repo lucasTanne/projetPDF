@@ -129,7 +129,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button mnemonicParsing="false">
+            <Button fx:id="imgButton" mnemonicParsing="false" onAction="#insererImage">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>

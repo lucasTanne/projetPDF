@@ -117,7 +117,7 @@ public class FichierPDF {
 		
 		String[] lesTextes = retour.split(";;");
 		for(String info : lesTextes) {
-			System.out.println("\n" + info);
+			//System.out.println("\n" + info);
 			String[] lesInfos = info.split(",,");
 //			System.out.println(lesInfos.length);
 			if(lesInfos.length == 7) {
