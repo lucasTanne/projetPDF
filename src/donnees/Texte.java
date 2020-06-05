@@ -174,4 +174,16 @@ public class Texte {
 	public void setCouleur(Color couleur) {
 		this.couleur = couleur;
 	}
+
+	/**
+	 * Methode toString de la classe texte
+	 */
+	@Override
+	public String toString() {
+		return "Texte [valeur=" + valeur + ", police=" + police + ", taille=" + taille + ", gras=" + gras
+				+ ", italique=" + italique + ", souligne=" + souligne + ", barre=" + barre + ", hyperlien=" + hyperlien
+				+ ", couleur=" + couleur + "]";
+	}
+	
+	
 }

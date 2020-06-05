@@ -18,6 +18,16 @@ public class Paragraphe extends Bloc{
 		return this.texte;
 	}
 	
+	
+	
+	/**
+	 * Methode modifiant la liste de texte
+	 * @param texte le texte a modifie
+	 */
+	public void setTexte(ArrayList<Texte> texte) {
+		this.texte = texte;
+	}
+
 	/**
 	 * Methode qui ajoute un objet texte dans l'ArrayList<Texte>
 	 * @param objet Texte

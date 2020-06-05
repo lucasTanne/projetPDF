@@ -23,7 +23,6 @@ public class Gras implements Balise
 	
 	public ArrayList<Texte> parser(String texte)
 	{
-		
 		// La chaine ne doit pas être nulle ou vide
 		if(texte == null || texte.isEmpty())
 		{
@@ -39,9 +38,11 @@ public class Gras implements Balise
 		
 		/*
 		 *  Si le texte contiens la balise de debut
-		 *  mais pas la balise de fin
+		 *  mais pas la balise de fin ou si la derniere balise
+		 *  de debut est apres la derniere balise de fin
 		 */
-		if(texte.contains(debut) && !texte.contains(fin))
+		if(texte.contains(debut) && !texte.contains(fin) ||
+				(texte.contains(debut) && texte.contains(fin) && texte.lastIndexOf(debut) > texte.lastIndexOf(fin)))
 		{
 			// On ajoute la balise de fin a la fin du texte
 			texte = texte + fin;
@@ -49,13 +50,18 @@ public class Gras implements Balise
 		
 		/*
 		 *  Si le texte contiens la balise de fin
-		 *  mais pas la balise de debut
+		 *  mais pas la balise de debut ou si la premiere balise
+		 *  de debut est apres la premiere balise de fin
 		 */
-		if(texte.contains(fin) && !texte.contains(debut))
+		else if((texte.contains(fin) && !texte.contains(debut)) ||
+				(texte.contains(debut) && texte.contains(fin) && indiceDebut > indiceFin))
 		{
 			// On ajoute la balise de debut au debut du texte
 			texte = debut + texte;
 		}
+		
+		indiceDebut = texte.indexOf(debut);
+		indiceFin = texte.indexOf(fin);
 		
 		// On verifie que le texte contiens les balises bien positionnees
 		if(texte.contains(debut) && texte.contains(fin) && indiceDebut < indiceFin)
@@ -136,8 +142,20 @@ public class Gras implements Balise
 		ArrayList<Texte> paragraphe = new ArrayList<Texte>();
 		
 		// On parcours le paragraphe d'origine
-		for(Texte texte : textes)
+		for(int i = 0; i < paragraphe.size(); i++)
 		{
+			Texte texte = paragraphe.get(i);
+			
+			if(texte.getValeur().contains(debut) && !texte.getValeur().contains(fin) && i < textes.size() - 1)
+			{
+				Texte suivant = textes.get(i+1);
+				
+				if(!suivant.getValeur().startsWith(debut))
+				{
+					suivant.setValeur(debut + suivant.getValeur());
+				}
+			}
+			
 			// On recupere les parametre du texte en cours de traitement
 			boolean italique = texte.isItalique();
 			boolean souligne = texte.isSouligne();
