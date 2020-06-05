@@ -32,6 +32,26 @@ public class Souligne implements Balise
 		int indiceDebut = texte.indexOf(debut);
 		int indiceFin = texte.indexOf(fin);
 		
+		/*
+		 *  Si le texte contiens la balise de debut
+		 *  mais pas la balise de fin
+		 */
+		if(texte.contains(debut) && !texte.contains(fin))
+		{
+			// On ajoute la balise de fin a la fin du texte
+			texte = texte + fin;
+		}
+		
+		/*
+		 *  Si le texte contiens la balise de fin
+		 *  mais pas la balise de debut
+		 */
+		if(texte.contains(fin) && !texte.contains(debut))
+		{
+			// On ajoute la balise de debut au debut du texte
+			texte = debut + texte;
+		}
+		
 		// On verifie que le texte contiens les balises bien positionnees
 		if(texte.contains(debut) && texte.contains(fin) && indiceDebut < indiceFin)
 		{
@@ -147,7 +167,7 @@ public class Souligne implements Balise
 				}
 			}
 		}
-			
+		
 		// On retourne le paragraphe
 		return paragraphe;
 	}

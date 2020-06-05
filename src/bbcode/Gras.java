@@ -23,6 +23,7 @@ public class Gras implements Balise
 	
 	public ArrayList<Texte> parser(String texte)
 	{
+		
 		// La chaine ne doit pas être nulle ou vide
 		if(texte == null || texte.isEmpty())
 		{
@@ -35,6 +36,26 @@ public class Gras implements Balise
 		// On initialise les indexs de debut et de fin de la premiere balise
 		int indiceDebut = texte.indexOf(debut);
 		int indiceFin = texte.indexOf(fin);
+		
+		/*
+		 *  Si le texte contiens la balise de debut
+		 *  mais pas la balise de fin
+		 */
+		if(texte.contains(debut) && !texte.contains(fin))
+		{
+			// On ajoute la balise de fin a la fin du texte
+			texte = texte + fin;
+		}
+		
+		/*
+		 *  Si le texte contiens la balise de fin
+		 *  mais pas la balise de debut
+		 */
+		if(texte.contains(fin) && !texte.contains(debut))
+		{
+			// On ajoute la balise de debut au debut du texte
+			texte = debut + texte;
+		}
 		
 		// On verifie que le texte contiens les balises bien positionnees
 		if(texte.contains(debut) && texte.contains(fin) && indiceDebut < indiceFin)
