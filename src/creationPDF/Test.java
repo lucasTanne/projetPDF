@@ -22,8 +22,8 @@ import donnees.Page;
 import gestionPDF.FichierPDF;
 
 public class Test {
-	private static String lien = "C:\\Users\\lulu\\Google Drive\\projetPDF\\pdf\\[PROJET-JAVA-FTP-2020]_Clement_Stoliaroff.pdf";
-	private static String save = "C:\\Users\\lulu\\Desktop\\test.pdf";
+	private static String lien = "C:\\Users\\stobr\\Desktop\\RELOU.pdf";
+	private static String save = "C:\\Users\\stobr\\Desktop\\test2.pdf";
 
 	public static void main(String[] args) throws IOException, DocumentException, PrintException {
 		// Extraction
@@ -55,21 +55,21 @@ public class Test {
 		// Recuperation de l ensemble des impremantes correcpondantes au critere definis au dessus
 		PrintService[] ps = PrinterJob.lookupPrintServices();
 		if (ps.length == 0) {
-		  throw new IllegalStateException("Aucune imprimante trouvée");
+		  throw new IllegalStateException("Aucune imprimante trouvï¿½e");
 		}
-//		for(PrintService p : ps) System.out.println(p.getName());
+		for(PrintService p : ps) System.out.println(p.getName());
 		System.out.println("Available printers: " + Arrays.asList(ps));
 		
 		PrintService myService = null;
 		for (PrintService printService : ps) {
-		  if (printService.getName().equals("Microsoft Print to PDF")) {
+		  if (printService.getName().equals("Brother DCP-585CW Printer")) {
 		    myService = printService;
 		    break;
 		  }
 		}
 		
 		if (myService == null) {
-		  throw new IllegalStateException("L'imprimante souhaitée est introuvable");
+		  throw new IllegalStateException("L'imprimante souhaitï¿½e est introuvable");
 		}
 		
 		// Ouverture d un flux de lecture du fichier PDF

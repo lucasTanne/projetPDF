@@ -35,4 +35,12 @@ public class Page {
 	public void supprimerBloc(int index) {
 		this.lesBlocs.remove(index);
 	}
+	
+	/**
+	 * Methode qui supprime un bloc dans la liste de bloc
+	 * @param int index
+	 */
+	public void supprimerBloc(Bloc bloc) {
+		this.lesBlocs.remove(bloc);
+	}
 }

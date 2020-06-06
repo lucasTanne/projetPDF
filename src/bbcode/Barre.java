@@ -10,12 +10,12 @@ public class Barre implements Balise
 	/**
 	 * La balise de debut de mise en forme
 	 */
-	static String debut = "[s]";
+	static final String debut = "[s]";
 
 	/**
 	 * La balise de fin de mise en forme
 	 */
-	static String fin = "[\\s]";
+	static final String fin = "[\\s]";
 
 	public ArrayList<Texte> parser(String texte)
 	{

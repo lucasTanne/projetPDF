@@ -10,12 +10,12 @@ public class Italique implements Balise
 	/**
 	 * La balise de debut de mise en forme
 	 */
-	static String debut = "[i]";
+	static final String debut = "[i]";
 
 	/**
 	 * La balise de fin de mise en forme
 	 */
-	static String fin = "[\\i]";
+	static final String fin = "[\\i]";
 
 	public ArrayList<Texte> parser(String texte)
 	{

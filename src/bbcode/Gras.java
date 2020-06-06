@@ -14,12 +14,12 @@ public class Gras implements Balise
 	/**
 	 * La balise de debut de mise en forme
 	 */
-	static String debut = "[b]";
+	static final String debut = "[b]";
 
 	/**
 	 * La balise de fin de mise en forme
 	 */
-	static String fin = "[\\b]";
+	static final  String fin = "[\\b]";
 	
 	public ArrayList<Texte> parser(String texte)
 	{

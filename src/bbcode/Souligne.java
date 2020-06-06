@@ -10,12 +10,12 @@ public class Souligne implements Balise
 	/**
 	 * La balise de debut de mise en forme
 	 */
-	static String debut = "[u]";
+	static final String debut = "[u]";
 
 	/**
 	 * La balise de fin de mise en forme
 	 */
-	static String fin = "[\\u]";
+	static final String fin = "[\\u]";
 
 	public ArrayList<Texte> parser(String texte)
 	{
