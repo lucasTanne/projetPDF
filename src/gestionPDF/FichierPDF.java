@@ -26,7 +26,7 @@ public class FichierPDF {
 	 */
 	public FichierPDF(String chemin){
 		this.chemin = chemin;
-		
+
 		this.fichier = null;
 		this.pages = new ArrayList<Page>();
 	}
@@ -194,7 +194,7 @@ public class FichierPDF {
 		}
 		this.ajouterPage(page);
 		
-		//this.testPara();
+//		this.testPara();
 		//this.testImage();
 	}
 	

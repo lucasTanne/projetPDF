@@ -6,16 +6,13 @@ import java.util.ArrayList;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.Font;
-import com.itextpdf.text.Paragraph;
-import com.itextpdf.text.Phrase;
 import com.itextpdf.text.pdf.PdfWriter;
 
 import donnees.Bloc;
 import donnees.Images;
 import donnees.Page;
 import donnees.Paragraphe;
-import donnees.Texte;
+import javafx.print.PrinterJob;
 
 public class CreationPDF {
 	private String cheminDest;
@@ -31,38 +28,47 @@ public class CreationPDF {
 		this.cheminDest = cheminDest;
 	}
 	
+	/**
+	 * Methode qui construit un document PDF
+	 * @param ArrayList<Page> lesPages
+	 * @throws FileNotFoundException
+	 * @throws DocumentException
+	 */
 	public void construction(ArrayList<Page> lesPages) throws FileNotFoundException, DocumentException {
+		// Creation d un document PDF
 		this.document = new Document();
-		PdfWriter writer = PdfWriter.getInstance(this.document, new FileOutputStream(this.cheminDest));
+		
+		// Instanciation d une instance PdfWriter du document
+		PdfWriter.getInstance(this.document, new FileOutputStream(this.cheminDest));
+		
+		// Ouverture du document
 		this.document.open();
 		
+		// Pour chaques pages venant de l ArrayList<Page>
 		for(Page page : lesPages) {
-			
+			// Creation d une nouvelle page dans le document
 			this.document.newPage();
 			
+			// Pour chaques blocs dans une page
 			for(Bloc bloc : page.getLesBlocs()) {
+				// Test si le bloc est une instance de Paragraphe
 				if(bloc instanceof Paragraphe) {
+					// Cast de l objet en Paragraphe
 					Paragraphe paragraphe = (Paragraphe)bloc;
 					
-					// Cr�ation d'un paragraphe iText
-					Paragraph paragraph = new Paragraph();
-					for(Texte texte : paragraphe.getTexte()) {
-						Font font = new Font(); 
-						if(texte.isGras()) font.setStyle("bold"); 
-						if(texte.isItalique()) font.setStyle("italic");
-						
-						Phrase phrase = new Phrase(texte.getTaille(), texte.getValeur(), font);
-						paragraph.add(phrase);
-					}
-					paragraph.setIndentationLeft((float)paragraphe.getX());
-					paragraph.setSpacingAfter(10);
-					
-					this.document.add(paragraph);
+					// Ajout d un paragraphe creer dans la classe CreationTexte
+					this.document.add(new CreationTexte(paragraphe).creationParagraphe());
+				// Test si le bloc est une instance de Images
 				}else if(bloc instanceof Images) {
-					Images image = (Images)bloc;
+					// Cast de l objet en Images
+					Images monImage = (Images)bloc;
+					
+					// Ajout de l instance d image iText creer dans la classe CreationImage
+					this.document.add(new CreationImage(monImage).creerImage());
 				}
 			}
 		}
+		// Fermeture du document
 		this.document.close();
 	}
 }
