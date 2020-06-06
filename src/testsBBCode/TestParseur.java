@@ -423,4 +423,51 @@ class TestParseur {
 			fail("Quatrième texte italique");
 		}
 	}
+	
+	@Test
+	void testParser5()
+	{
+		String test = "ceci est un texte normal";
+		
+		ArrayList<Texte> paragraphe = parseur.parser(test);
+
+		// Test paragraphe null
+		if(paragraphe == null)
+		{
+			fail("Paragraphe null");
+		}
+		
+		// Test de la taille du paragraphe
+		if(paragraphe.size() != 1)
+		{
+			fail("Nombre d'objet Texte incorrect");
+		}
+		
+		// Test de la valeur des textes
+		if(!paragraphe.get(0).getValeur().equals("ceci est un texte normal"))
+		{
+			fail("Valeur du texte incorrect");
+		}
+		
+		// Test du formatage du quatrieme texte
+		if(paragraphe.get(0).isGras())
+		{
+			fail("Texte en gras");
+		}
+		
+		if(paragraphe.get(0).isBarre())
+		{
+			fail("Texte barré");
+		}
+		
+		if(paragraphe.get(0).isSouligne())
+		{
+			fail("Texte souligné");
+		}
+		
+		if(paragraphe.get(0).isItalique())
+		{
+			fail("Texte italique");
+		}
+	}
 }

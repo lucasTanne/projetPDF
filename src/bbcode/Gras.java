@@ -146,7 +146,12 @@ public class Gras implements Balise
 		{
 			Texte texte = paragraphe.get(i);
 			
-			if(texte.getValeur().contains(debut) && !texte.getValeur().contains(fin) && i < textes.size() - 1)
+			/*
+			 * S'il la derniere balise de debut se trouve apres la derniere balise de fin
+			 * et que le prochain texte ne commence pas par la balise de debut, on ajoute
+			 * une balise de debut au prochain texte
+			 */
+			if(texte.getValeur().lastIndexOf(debut) > texte.getValeur().indexOf(fin) && i < textes.size() - 1)
 			{
 				Texte suivant = textes.get(i+1);
 				
