@@ -32,7 +32,7 @@ public class CreationTexte {
 			Font font = this.creerFont(texte);
 			
 			// Creation d'un objet phrase
-			Phrase phrase = new Phrase(texte.getTaille(), texte.getValeur(), font);
+			Phrase phrase = new Phrase((float)texte.getTaille(), texte.getValeur(), font);
 			paragraph.add(phrase);
 		}
 		paragraph.setIndentationLeft((float)paragraphe.getX());
@@ -53,5 +53,9 @@ public class CreationTexte {
 		if(texte.isItalique()) font.setStyle("italic");
 		
 		return font;
+	}
+	
+	private void position(Phrase phrase) {
+		
 	}
 }

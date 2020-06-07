@@ -57,7 +57,6 @@ public class Test {
 		if (ps.length == 0) {
 		  throw new IllegalStateException("Aucune imprimante trouv�e");
 		}
-		for(PrintService p : ps) System.out.println(p.getName());
 		System.out.println("Available printers: " + Arrays.asList(ps));
 		
 		PrintService myService = null;
