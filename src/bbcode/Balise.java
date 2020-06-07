@@ -6,8 +6,6 @@ import donnees.Texte;
 
 public interface Balise
 {
-	static final String debut = "";
-	
 	/**
 	 * Parse le texte en liste d'objet Texte
 	 * en lui attribuant le formatage de la balise
