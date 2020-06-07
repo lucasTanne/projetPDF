@@ -1,0 +1,138 @@
+\doxysection{gestion\+P\+D\+F.\+Fichier\+P\+DF Class Reference}
+\label{classgestion_p_d_f_1_1_fichier_p_d_f}\index{gestionPDF.FichierPDF@{gestionPDF.FichierPDF}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Fichier\+P\+DF} (String chemin)
+\item 
+void \textbf{ ouvrir} ()  throws I\+O\+Exception 
+\item 
+void \textbf{ fermer} ()
+\item 
+Boolean \textbf{ est\+Ouvert} ()
+\item 
+int \textbf{ nb\+Pages} ()
+\item 
+void \textbf{ ajouter\+Page} (\textbf{ Page} page)
+\item 
+void \textbf{ supprimer\+Page} (int index)
+\item 
+Array\+List$<$ \textbf{ Page} $>$ \textbf{ get\+Pages} ()
+\item 
+\textbf{ Page} \textbf{ get\+Page} (int index)
+\item 
+void \textbf{ lire} (int index\+Page)  throws I\+O\+Exception 
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{classgestion_p_d_f_1_1_fichier_p_d_f_a7b4bf4ef4af3079ad4e0db3707fec8a9}} 
+\index{gestionPDF.FichierPDF@{gestionPDF.FichierPDF}!FichierPDF@{FichierPDF}}
+\index{FichierPDF@{FichierPDF}!gestionPDF.FichierPDF@{gestionPDF.FichierPDF}}
+\doxysubsubsection{FichierPDF()}
+{\footnotesize\ttfamily gestion\+P\+D\+F.\+Fichier\+P\+D\+F.\+Fichier\+P\+DF (\begin{DoxyParamCaption}\item[{String}]{chemin }\end{DoxyParamCaption})}
+
+Constructeur d\textquotesingle{}un fichier P\+DF 
+\begin{DoxyParams}{Parameters}
+{\em String} & chemin \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classgestion_p_d_f_1_1_fichier_p_d_f_a80bf9c36ca527b4e8717dc4ffc15adff}} 
+\index{gestionPDF.FichierPDF@{gestionPDF.FichierPDF}!ajouterPage@{ajouterPage}}
+\index{ajouterPage@{ajouterPage}!gestionPDF.FichierPDF@{gestionPDF.FichierPDF}}
+\doxysubsubsection{ajouterPage()}
+{\footnotesize\ttfamily void gestion\+P\+D\+F.\+Fichier\+P\+D\+F.\+ajouter\+Page (\begin{DoxyParamCaption}\item[{\textbf{ Page}}]{page }\end{DoxyParamCaption})}
+
+Methode qui ajoute une page dans l\textquotesingle{}Array\+List$<$\+Page$>$ 
+\begin{DoxyParams}{Parameters}
+{\em Page} & page \\
+\hline
+\end{DoxyParams}
+\mbox{\label{classgestion_p_d_f_1_1_fichier_p_d_f_a83d5fcaa01d2da9a610a5156a702f82c}} 
+\index{gestionPDF.FichierPDF@{gestionPDF.FichierPDF}!estOuvert@{estOuvert}}
+\index{estOuvert@{estOuvert}!gestionPDF.FichierPDF@{gestionPDF.FichierPDF}}
+\doxysubsubsection{estOuvert()}
+{\footnotesize\ttfamily Boolean gestion\+P\+D\+F.\+Fichier\+P\+D\+F.\+est\+Ouvert (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Methode qui test si un fichier est ouvert \begin{DoxyReturn}{Returns}
+Boolean 
+\end{DoxyReturn}
+\mbox{\label{classgestion_p_d_f_1_1_fichier_p_d_f_a40f4ea5ec1184d27d5380f4fdd54ff87}} 
+\index{gestionPDF.FichierPDF@{gestionPDF.FichierPDF}!fermer@{fermer}}
+\index{fermer@{fermer}!gestionPDF.FichierPDF@{gestionPDF.FichierPDF}}
+\doxysubsubsection{fermer()}
+{\footnotesize\ttfamily void gestion\+P\+D\+F.\+Fichier\+P\+D\+F.\+fermer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Methode qui referme un fichier P\+DF \mbox{\label{classgestion_p_d_f_1_1_fichier_p_d_f_af593e910e6f0c03f9f6af5e29e2c3856}} 
+\index{gestionPDF.FichierPDF@{gestionPDF.FichierPDF}!getPage@{getPage}}
+\index{getPage@{getPage}!gestionPDF.FichierPDF@{gestionPDF.FichierPDF}}
+\doxysubsubsection{getPage()}
+{\footnotesize\ttfamily \textbf{ Page} gestion\+P\+D\+F.\+Fichier\+P\+D\+F.\+get\+Page (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Methode qui retourne une page de la liste de pages 
+\begin{DoxyParams}{Parameters}
+{\em int} & index \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Page page 
+\end{DoxyReturn}
+\mbox{\label{classgestion_p_d_f_1_1_fichier_p_d_f_a3f4b5af888892a1eb067394828157056}} 
+\index{gestionPDF.FichierPDF@{gestionPDF.FichierPDF}!getPages@{getPages}}
+\index{getPages@{getPages}!gestionPDF.FichierPDF@{gestionPDF.FichierPDF}}
+\doxysubsubsection{getPages()}
+{\footnotesize\ttfamily Array\+List$<$\textbf{ Page}$>$ gestion\+P\+D\+F.\+Fichier\+P\+D\+F.\+get\+Pages (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Methode qui retourne une liste de pages \begin{DoxyReturn}{Returns}
+Array\+List$<$\+Page$>$ 
+\end{DoxyReturn}
+\mbox{\label{classgestion_p_d_f_1_1_fichier_p_d_f_a799316b8f71def0ba605fcc55070b8cc}} 
+\index{gestionPDF.FichierPDF@{gestionPDF.FichierPDF}!lire@{lire}}
+\index{lire@{lire}!gestionPDF.FichierPDF@{gestionPDF.FichierPDF}}
+\doxysubsubsection{lire()}
+{\footnotesize\ttfamily void gestion\+P\+D\+F.\+Fichier\+P\+D\+F.\+lire (\begin{DoxyParamCaption}\item[{int}]{index\+Page }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+Methode qui va lire le contenu du fichier 
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\label{classgestion_p_d_f_1_1_fichier_p_d_f_a014ce9a22769b6ce9ed0e1c7b16872e1}} 
+\index{gestionPDF.FichierPDF@{gestionPDF.FichierPDF}!nbPages@{nbPages}}
+\index{nbPages@{nbPages}!gestionPDF.FichierPDF@{gestionPDF.FichierPDF}}
+\doxysubsubsection{nbPages()}
+{\footnotesize\ttfamily int gestion\+P\+D\+F.\+Fichier\+P\+D\+F.\+nb\+Pages (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Methode qui retourne le nombre de pages du document \begin{DoxyReturn}{Returns}
+int nb\+Pages 
+\end{DoxyReturn}
+\mbox{\label{classgestion_p_d_f_1_1_fichier_p_d_f_af8c5955b0e5d7606ea73110febf6d19d}} 
+\index{gestionPDF.FichierPDF@{gestionPDF.FichierPDF}!ouvrir@{ouvrir}}
+\index{ouvrir@{ouvrir}!gestionPDF.FichierPDF@{gestionPDF.FichierPDF}}
+\doxysubsubsection{ouvrir()}
+{\footnotesize\ttfamily void gestion\+P\+D\+F.\+Fichier\+P\+D\+F.\+ouvrir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) throws I\+O\+Exception}
+
+Methode de chargement du fichier P\+DF. Propage l\textquotesingle{}erreur pour la gerer dans le package de l\textquotesingle{}I\+HM. 
+\begin{DoxyExceptions}{Exceptions}
+{\em I\+O\+Exception} & \\
+\hline
+\end{DoxyExceptions}
+\mbox{\label{classgestion_p_d_f_1_1_fichier_p_d_f_a4be3af5caf2cb49dffaf1520fe867765}} 
+\index{gestionPDF.FichierPDF@{gestionPDF.FichierPDF}!supprimerPage@{supprimerPage}}
+\index{supprimerPage@{supprimerPage}!gestionPDF.FichierPDF@{gestionPDF.FichierPDF}}
+\doxysubsubsection{supprimerPage()}
+{\footnotesize\ttfamily void gestion\+P\+D\+F.\+Fichier\+P\+D\+F.\+supprimer\+Page (\begin{DoxyParamCaption}\item[{int}]{index }\end{DoxyParamCaption})}
+
+Methode qui supprime un bloc de l\textquotesingle{}Array\+List$<$\+Bloc$>$ 
+\begin{DoxyParams}{Parameters}
+{\em int} & index \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+gestion\+P\+D\+F/\textbf{ Fichier\+P\+D\+F.\+java}\end{DoxyCompactItemize}

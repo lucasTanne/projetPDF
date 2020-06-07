@@ -80,7 +80,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="btnGras" mnemonicParsing="false" onMouseClicked="#curseurTexte">
+            <Button fx:id="btnGras" mnemonicParsing="false" onMouseClicked="#gras">
                <graphic>
                   <ImageView fitHeight="35.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -92,7 +92,7 @@
                   <Insets left="10.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="btnItalique" mnemonicParsing="false">
+            <Button fx:id="btnItalique" mnemonicParsing="false" onMouseClicked="#italique">
                <graphic>
                   <ImageView fitHeight="35.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -104,7 +104,7 @@
                   <Insets left="10.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="btnSouligne" mnemonicParsing="false">
+            <Button fx:id="btnSouligne" mnemonicParsing="false" onMouseClicked="#souligne">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
@@ -115,6 +115,18 @@
                      </image>
                   </ImageView>
                </graphic>
+            </Button>
+            <Button fx:id="btnBarre" mnemonicParsing="false" onMouseClicked="#barre">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/strikethrough.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
             </Button>
             <Button fx:id="btnCouleur" mnemonicParsing="false">
                <HBox.margin>
@@ -128,7 +140,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="imgButton" mnemonicParsing="false" onMouseClicked="#curseurImage">
+            <Button fx:id="btnImage" mnemonicParsing="false" onMouseClicked="#curseurImage">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>

@@ -1,0 +1,63 @@
+\doxysection{bbcode.\+Gras Class Reference}
+\label{classbbcode_1_1_gras}\index{bbcode.Gras@{bbcode.Gras}}
+Inheritance diagram for bbcode.\+Gras\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classbbcode_1_1_gras}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Array\+List$<$ \textbf{ Texte} $>$ \textbf{ parser} (String texte)
+\item 
+Array\+List$<$ \textbf{ Texte} $>$ \textbf{ parser\+Paragraphe} (Array\+List$<$ \textbf{ Texte} $>$ textes)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Classe chargee de parser la texte 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{classbbcode_1_1_gras_a2f9304acae34acfe0437b86a14e301a5}} 
+\index{bbcode.Gras@{bbcode.Gras}!parser@{parser}}
+\index{parser@{parser}!bbcode.Gras@{bbcode.Gras}}
+\doxysubsubsection{parser()}
+{\footnotesize\ttfamily Array\+List$<$\textbf{ Texte}$>$ bbcode.\+Gras.\+parser (\begin{DoxyParamCaption}\item[{String}]{texte }\end{DoxyParamCaption})}
+
+Parse le texte en liste d\textquotesingle{}objet Texte en lui attribuant le formatage de la balise 
+\begin{DoxyParams}{Parameters}
+{\em texte} & Le texte a parser \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+La liste de texte parse 
+\end{DoxyReturn}
+
+
+Implements \textbf{ bbcode.\+Balise} \doxyref{}{p.}{interfacebbcode_1_1_balise_a05c667e8a33951240a1abdbe558cf5ac}.
+
+\mbox{\label{classbbcode_1_1_gras_a3306a15692d9cd7700426061beef3e23}} 
+\index{bbcode.Gras@{bbcode.Gras}!parserParagraphe@{parserParagraphe}}
+\index{parserParagraphe@{parserParagraphe}!bbcode.Gras@{bbcode.Gras}}
+\doxysubsubsection{parserParagraphe()}
+{\footnotesize\ttfamily Array\+List$<$\textbf{ Texte}$>$ bbcode.\+Gras.\+parser\+Paragraphe (\begin{DoxyParamCaption}\item[{Array\+List$<$ \textbf{ Texte} $>$}]{textes }\end{DoxyParamCaption})}
+
+Parse la liste de texte en un autre liste de texte a l\textquotesingle{}aide de la balise, tout en conservant ses attributs precedents 
+\begin{DoxyParams}{Parameters}
+{\em textes} & La liste de texte a parser \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+La liste de texte parse 
+\end{DoxyReturn}
+
+
+Implements \textbf{ bbcode.\+Balise} \doxyref{}{p.}{interfacebbcode_1_1_balise_a23c9d543dc04a2e3b69913d486115da0}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+bbcode/\textbf{ Gras.\+java}\end{DoxyCompactItemize}

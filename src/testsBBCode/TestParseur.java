@@ -26,16 +26,16 @@ class TestParseur {
 	private static Parseur parseur;
 
 	/**
-	 * @throws java.lang.Exception
+	 * instancie le parseur aavnt d'effectuer les tests
 	 */
 	@BeforeAll
-	static void setUpBeforeClass() throws Exception
+	static void setUpBeforeClass()
 	{
 		parseur = new Parseur(new Gras(), new Italique(), new Souligne(), new Barre());
 	}
 
 	/**
-	 * Test method for {@link bbcode.Parseur#parser(java.lang.String)}.
+	 * Test le parse avec un texte vide
 	 */
 	@Test
 	void testParser()
@@ -48,6 +48,9 @@ class TestParseur {
 		}
 	}
 	
+	/**
+	 * Test avec un texte contenant chaque mise en forme
+	 */
 	@Test
 	void testParser2()
 	{
@@ -200,6 +203,9 @@ class TestParseur {
 		}
 	}
 	
+	/**
+	 * Test d'un texte avec un mot contenant deux mises en formes a la fin du texte
+	 */
 	@Test
 	void testParser3()
 	{
@@ -299,6 +305,9 @@ class TestParseur {
 		}
 	}
 	
+	/**
+	 * Test d'un texte avec un mot contenant deux mises en formes au debut du texte
+	 */
 	@Test
 	void testParser4()
 	{
@@ -424,6 +433,9 @@ class TestParseur {
 		}
 	}
 	
+	/**
+	 * Test avec un texte sans mise en forme
+	 */
 	@Test
 	void testParser5()
 	{

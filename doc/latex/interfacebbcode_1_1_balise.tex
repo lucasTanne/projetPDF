@@ -1,0 +1,73 @@
+\doxysection{bbcode.\+Balise Interface Reference}
+\label{interfacebbcode_1_1_balise}\index{bbcode.Balise@{bbcode.Balise}}
+Inheritance diagram for bbcode.\+Balise\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{interfacebbcode_1_1_balise}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+abstract Array\+List$<$ \textbf{ Texte} $>$ \textbf{ parser} (String texte)
+\item 
+abstract Array\+List$<$ \textbf{ Texte} $>$ \textbf{ parser\+Paragraphe} (Array\+List$<$ \textbf{ Texte} $>$ textes)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static final String \textbf{ debut} = \char`\"{}\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{interfacebbcode_1_1_balise_a05c667e8a33951240a1abdbe558cf5ac}} 
+\index{bbcode.Balise@{bbcode.Balise}!parser@{parser}}
+\index{parser@{parser}!bbcode.Balise@{bbcode.Balise}}
+\doxysubsubsection{parser()}
+{\footnotesize\ttfamily abstract Array\+List$<$\textbf{ Texte}$>$ bbcode.\+Balise.\+parser (\begin{DoxyParamCaption}\item[{String}]{texte }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+Parse le texte en liste d\textquotesingle{}objet Texte en lui attribuant le formatage de la balise 
+\begin{DoxyParams}{Parameters}
+{\em texte} & Le texte a parser \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+La liste de texte parse 
+\end{DoxyReturn}
+
+
+Implemented in \textbf{ bbcode.\+Gras} \doxyref{}{p.}{classbbcode_1_1_gras_a2f9304acae34acfe0437b86a14e301a5}, \textbf{ bbcode.\+Barre} \doxyref{}{p.}{classbbcode_1_1_barre_abf9e71cb6685ca3a7a5a4a2163b1187e}, \textbf{ bbcode.\+Italique} \doxyref{}{p.}{classbbcode_1_1_italique_af3973b8d1c6162f5fe59b1f1b2c32435}, and \textbf{ bbcode.\+Souligne} \doxyref{}{p.}{classbbcode_1_1_souligne_a63b26f12935b5c6b8ec08d4a5b156788}.
+
+\mbox{\label{interfacebbcode_1_1_balise_a23c9d543dc04a2e3b69913d486115da0}} 
+\index{bbcode.Balise@{bbcode.Balise}!parserParagraphe@{parserParagraphe}}
+\index{parserParagraphe@{parserParagraphe}!bbcode.Balise@{bbcode.Balise}}
+\doxysubsubsection{parserParagraphe()}
+{\footnotesize\ttfamily abstract Array\+List$<$\textbf{ Texte}$>$ bbcode.\+Balise.\+parser\+Paragraphe (\begin{DoxyParamCaption}\item[{Array\+List$<$ \textbf{ Texte} $>$}]{textes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [abstract]}}
+
+Parse la liste de texte en un autre liste de texte a l\textquotesingle{}aide de la balise, tout en conservant ses attributs precedents 
+\begin{DoxyParams}{Parameters}
+{\em textes} & La liste de texte a parser \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+La liste de texte parse 
+\end{DoxyReturn}
+
+
+Implemented in \textbf{ bbcode.\+Gras} \doxyref{}{p.}{classbbcode_1_1_gras_a3306a15692d9cd7700426061beef3e23}, \textbf{ bbcode.\+Barre} \doxyref{}{p.}{classbbcode_1_1_barre_a3bea334b9916b125183b26f8924cada9}, \textbf{ bbcode.\+Italique} \doxyref{}{p.}{classbbcode_1_1_italique_a531edad40c1fc76f01a45da36a57310f}, and \textbf{ bbcode.\+Souligne} \doxyref{}{p.}{classbbcode_1_1_souligne_a1505b5f7312ac69c6a9549973a81c7b2}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\label{interfacebbcode_1_1_balise_a917a9e17114639a2e5744fdadcd73066}} 
+\index{bbcode.Balise@{bbcode.Balise}!debut@{debut}}
+\index{debut@{debut}!bbcode.Balise@{bbcode.Balise}}
+\doxysubsubsection{debut}
+{\footnotesize\ttfamily final String bbcode.\+Balise.\+debut = \char`\"{}\char`\"{}\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this interface was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+bbcode/\textbf{ Balise.\+java}\end{DoxyCompactItemize}
