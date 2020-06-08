@@ -1,0 +1,47 @@
+\doxysection{Controleur Class Reference}
+\label{class_controleur}\index{Controleur@{Controleur}}
+
+
+Inheritance diagram for Controleur\+:
+% FIG 0
+
+
+Collaboration diagram for Controleur\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \textbf{ initialize} (U\+RL location, Resource\+Bundle resources)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+
+
+Definition at line 66 of file Controleur.\+java.
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{class_controleur_a74e9f2379f6e08a37051f329006abed0}} 
+\index{Controleur@{Controleur}!initialize@{initialize}}
+\index{initialize@{initialize}!Controleur@{Controleur}}
+\doxysubsubsection{initialize()}
+{\footnotesize\ttfamily void Controleur.\+initialize (\begin{DoxyParamCaption}\item[{U\+RL}]{location,  }\item[{Resource\+Bundle}]{resources }\end{DoxyParamCaption})}
+
+Initialise les parametres du controleur 
+\begin{DoxyParams}{Parameters}
+{\em location} & \\
+\hline
+{\em resources} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 154 of file Controleur.\+java.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+application/\textbf{ Controleur.\+java}\end{DoxyCompactItemize}

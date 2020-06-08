@@ -14,6 +14,7 @@ var hierarchy =
     [ "creationPDF.CreationPDF", "classcreation_p_d_f_1_1_creation_p_d_f.html", null ],
     [ "creationPDF.CreationTexte", "classcreation_p_d_f_1_1_creation_texte.html", null ],
     [ "gestionPDF.FichierPDF", "classgestion_p_d_f_1_1_fichier_p_d_f.html", null ],
+    [ "creationPDF.Impression", "classcreation_p_d_f_1_1_impression.html", null ],
     [ "donnees.Page", "classdonnees_1_1_page.html", null ],
     [ "bbcode.Parseur", "classbbcode_1_1_parseur.html", null ],
     [ "creationPDF.Test", "classcreation_p_d_f_1_1_test.html", null ],

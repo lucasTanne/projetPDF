@@ -140,6 +140,18 @@
                   </ImageView>
                </graphic>
             </Button>
+            <Button fx:id="btnHyperlien" mnemonicParsing="false" onMouseClicked="#barre">
+               <graphic>
+                  <ImageView fitHeight="35.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/backlink.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
             <Button fx:id="btnImage" mnemonicParsing="false" onMouseClicked="#curseurImage">
                <HBox.margin>
                   <Insets left="10.0" />

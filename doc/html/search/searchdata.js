@@ -4,8 +4,7 @@ var indexSectionsWithContent =
   1: "bcfgimpst",
   2: "abcdgt",
   3: "bcfgimpst",
-  4: "abcefgilmnoprst",
-  5: "d"
+  4: "abcefgilmnoprst"
 };
 
 var indexSectionNames =
@@ -14,8 +13,7 @@ var indexSectionNames =
   1: "classes",
   2: "namespaces",
   3: "files",
-  4: "functions",
-  5: "variables"
+  4: "functions"
 };
 
 var indexSectionLabels =
@@ -24,7 +22,6 @@ var indexSectionLabels =
   1: "Classes",
   2: "Namespaces",
   3: "Files",
-  4: "Functions",
-  5: "Variables"
+  4: "Functions"
 };
 
